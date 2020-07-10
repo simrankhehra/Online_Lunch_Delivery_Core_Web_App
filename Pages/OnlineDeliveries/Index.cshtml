@@ -1,0 +1,61 @@
+﻿@page
+@model Online_Lunch_Delivery_Core_Web_App.Pages.OnlineDeliveries.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Online Deliveries</h1>
+
+<p>
+    <a class="btn btn-dark" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OnlineDelivery[0].DeliveryAgent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OnlineDelivery[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OnlineDelivery[0].LunchPack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OnlineDelivery[0].NumberOfPacks)
+            </th>
+
+            <th>
+               Total Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OnlineDelivery) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryAgent.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LunchPack.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPacks)
+            </td>
+            <td>
+                $ @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-dark" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-dark" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

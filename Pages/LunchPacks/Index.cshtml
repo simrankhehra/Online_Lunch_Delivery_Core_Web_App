@@ -1,0 +1,43 @@
+﻿@page
+@model Online_Lunch_Delivery_Core_Web_App.Pages.LunchPacks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lunch Packs</h1>
+
+<p>
+    <a class="btn btn-dark" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LunchPack[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LunchPack[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LunchPack)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    $ @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a class="btn btn-dark" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="btn btn-dark" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a class="btn btn-dark" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

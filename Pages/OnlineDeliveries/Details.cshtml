@@ -1,0 +1,43 @@
+﻿@page
+@model Online_Lunch_Delivery_Core_Web_App.Pages.OnlineDeliveries.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Online Delivery</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OnlineDelivery.DeliveryAgent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OnlineDelivery.DeliveryAgent.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OnlineDelivery.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OnlineDelivery.Customer.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OnlineDelivery.LunchPack)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OnlineDelivery.LunchPack.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OnlineDelivery.NumberOfPacks)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OnlineDelivery.NumberOfPacks)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" class="btn btn-dark" asp-route-id="@Model.OnlineDelivery.Id">Edit</a> |
+    <a asp-page="./Index" class="btn btn-dark">Back to List</a>
+</div>
